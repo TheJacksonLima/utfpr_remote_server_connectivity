@@ -1,0 +1,1 @@
+Comparando Ktor com HttpURLConnection uma requisição por vez

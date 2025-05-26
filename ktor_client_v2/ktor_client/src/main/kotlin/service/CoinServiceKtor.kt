@@ -4,15 +4,18 @@ import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
+import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
 import org.example.model.Coin
 import java.io.FileInputStream
 import java.io.IOException
-import java.util.Properties
+import java.net.HttpURLConnection
+import java.net.URL
+import java.util.*
 
-object CoinService {
+object CoinServiceKtor {
     private val client = HttpClient {
         install(ContentNegotiation) {
             json(Json {
@@ -21,16 +24,39 @@ object CoinService {
         }
     }
 
-    suspend fun fetchCoins(): List<Coin>? {
-        println("Fetching all coins:")
+    suspend fun fetchAllCoins(): List<Coin> {
         val apiKey = System.getenv("API_KEY") ?: error("API_KEY não foi configurada nas variáveis de ambiente")
-        val url = getProperties(apiKey)
-         client.get(it) {
-                parameter("vs_currency", "usd")
-                parameter("x_cg_demo_api_key", apiKey)
-                accept(ContentType.Application.Json)
-            }.body()
+        val requestBuilder = HttpRequestBuilder().apply {
+            method = HttpMethod.Get
+            url {
+                protocol = URLProtocol.HTTPS
+                host = getProperties("coin_gecko_base_url").toString()
+                encodedPath = getProperties("coin_gecko_base_path").toString() + "list"
+                parameters.append("vs_currency", "usd")
+                parameters.append("x_cg_demo_api_key", apiKey)
+            }
         }
+
+        val coins: List<Coin> = client.request(requestBuilder).body()
+        return coins;
+    }
+
+    suspend fun fetchCoinInfo(coinId : String): String {
+        val apiKey = System.getenv("API_KEY") ?: error("API_KEY não foi configurada nas variáveis de ambiente")
+        val requestBuilder = HttpRequestBuilder().apply {
+            method = HttpMethod.Get
+            url {
+                protocol = URLProtocol.HTTPS
+                host = getProperties("coin_gecko_base_url").toString()
+                encodedPath = getProperties("coin_gecko_base_path").toString() + coinId
+                parameters.append("vs_currency", "usd")
+                parameters.append("x_cg_demo_api_key", apiKey)
+            }
+            headers {
+                append(HttpHeaders.Accept, ContentType.Application.Json.toString())
+            }
+        }
+        return client.request(requestBuilder).bodyAsText()
     }
 
     private fun getProperties(pProperty: String): String? {

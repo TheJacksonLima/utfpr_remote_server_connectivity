@@ -1,0 +1,30 @@
+Comparando Ktor com HttpURLConnection uma requisição por vez
+__________________________________________________
+Ktor tempo total: 1579ms
+Ktor tempo médio por requisição: 1579ms
+__________________________________________________
+HttpURLConnection tempo total: 168ms
+HttpURLConnection tempo médio por requisição: 168ms
+__________________________________________________
+
+Comparando Ktor com HttpURLConnection em chamadas paralelas crescentes
+### Rodada com 2 requisições paralelas
+Ktor - Total: 312ms | Média: 156ms
+HTTP - Total: 66ms | Média: 33ms
+____________________________________________________________
+### Rodada com 4 requisições paralelas
+Ktor - Total: 564ms | Média: 141ms
+HTTP - Total: 77ms | Média: 19ms
+____________________________________________________________
+### Rodada com 6 requisições paralelas
+Ktor - Total: 378ms | Média: 63ms
+HTTP - Total: 88ms | Média: 14ms
+____________________________________________________________
+### Rodada com 8 requisições paralelas
+Ktor - Total: 334ms | Média: 41ms
+HTTP - Total: 87ms | Média: 10ms
+____________________________________________________________
+### Rodada com 10 requisições paralelas
+Ktor - Total: 372ms | Média: 37ms
+HTTP - Total: 84ms | Média: 8ms
+____________________________________________________________

@@ -1,0 +1,72 @@
+Comparando Ktor com HttpURLConnection uma requisição por vez
+__________________________________________________
+Ktor tempo total: 4035ms
+Ktor tempo médio por requisição: 403ms
+__________________________________________________
+HttpURLConnection tempo total: 400ms
+HttpURLConnection tempo médio por requisição: 40ms
+__________________________________________________
+
+Comparando Ktor com HttpURLConnection em chamadas paralelas crescentes
+### Rodada com 2 requisições paralelas
+Ktor - Total: 82ms | Média: 41ms
+HTTP - Total: 68ms | Média: 34ms
+____________________________________________________________
+### Rodada com 4 requisições paralelas
+Ktor - Total: 93ms | Média: 23ms
+HTTP - Total: 64ms | Média: 16ms
+____________________________________________________________
+### Rodada com 6 requisições paralelas
+Ktor - Total: 108ms | Média: 18ms
+HTTP - Total: 135ms | Média: 22ms
+____________________________________________________________
+### Rodada com 8 requisições paralelas
+Ktor - Total: 156ms | Média: 19ms
+HTTP - Total: 120ms | Média: 15ms
+____________________________________________________________
+### Rodada com 10 requisições paralelas
+Ktor - Total: 129ms | Média: 12ms
+HTTP - Total: 115ms | Média: 11ms
+____________________________________________________________
+### Rodada com 12 requisições paralelas
+Ktor - Total: 356ms | Média: 29ms
+HTTP - Total: 229ms | Média: 19ms
+____________________________________________________________
+### Rodada com 14 requisições paralelas
+Ktor - Total: 307ms | Média: 21ms
+HTTP - Total: 102ms | Média: 7ms
+____________________________________________________________
+### Rodada com 16 requisições paralelas
+Ktor - Total: 313ms | Média: 19ms
+HTTP - Total: 149ms | Média: 9ms
+____________________________________________________________
+### Rodada com 18 requisições paralelas
+Ktor - Total: 595ms | Média: 33ms
+HTTP - Total: 118ms | Média: 6ms
+____________________________________________________________
+### Rodada com 20 requisições paralelas
+Ktor - Total: 388ms | Média: 19ms
+HTTP - Total: 120ms | Média: 6ms
+____________________________________________________________
+### Rodada com 22 requisições paralelas
+Ktor - Total: 383ms | Média: 17ms
+HTTP - Total: 106ms | Média: 4ms
+____________________________________________________________
+### Rodada com 24 requisições paralelas
+Ktor - Total: 353ms | Média: 14ms
+HTTP - Total: 131ms | Média: 5ms
+____________________________________________________________
+### Rodada com 26 requisições paralelas
+Ktor - Total: 409ms | Média: 15ms
+HTTP - Total: 121ms | Média: 4ms
+____________________________________________________________
+### Rodada com 28 requisições paralelas
+Ktor - Total: 412ms | Média: 14ms
+HTTP - Total: 118ms | Média: 4ms
+____________________________________________________________
+### Rodada com 30 requisições paralelas
+Ktor - Total: 403ms | Média: 13ms
+HTTP - Total: 130ms | Média: 4ms
+____________________________________________________________
+### Rodada com 32 requisições paralelas
+Ktor - Total: 526ms | Média: 16ms
