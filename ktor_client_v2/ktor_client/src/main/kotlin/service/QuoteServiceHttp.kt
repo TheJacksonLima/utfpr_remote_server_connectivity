@@ -1,23 +1,22 @@
 package org.example.service
 
-
 import kotlinx.serialization.json.Json
-import org.example.model.Coin
+import model.Quote
+import model.QuoteResponse
 import java.io.FileInputStream
 import java.io.IOException
 import java.net.HttpURLConnection
 import java.net.URL
 import java.util.*
 
-object CoinServiceHttp {
+object QuoteServiceHttp {
 
-    private val apiKey: String = System.getenv("API_KEY") ?: error("API_KEY não configurada")
-    private val baseUrl: String = getProperties("coin_gecko_base_url") ?: error("base_url ausente")
-    private val basePath: String = getProperties("coin_gecko_base_path") ?: error("base_path ausente")
+    private val baseUrl: String = QuoteServiceHttp.getProperties("quote_base_url") ?: error("base_url ausente")
+    private val basePath: String = QuoteServiceHttp.getProperties("quote_base_path") ?: error("base_path ausente")
     private val json = Json { ignoreUnknownKeys = true }
 
-    fun fetchCoinInfo(coinId: String): String {
-        val urlString = "https://$baseUrl$basePath$coinId?vs_currency=usd&x_cg_demo_api_key=$apiKey"
+    fun fetchQuoteInfo(quoteId: Int): String {
+        val urlString = "https://$baseUrl$basePath/" + quoteId.toString()
         val connection = URL(urlString).openConnection() as HttpURLConnection
 
         connection.requestMethod = "GET"
@@ -28,8 +27,8 @@ object CoinServiceHttp {
         return response
     }
 
-    fun fetchAllCoins(): List<Coin> {
-        val urlString = "https://$baseUrl${basePath}list?vs_currency=usd&x_cg_demo_api_key=$apiKey"
+    fun fetchAllQuotes(): List<Quote> {
+        val urlString = "https://$baseUrl$basePath"
         val connection = URL(urlString).openConnection() as HttpURLConnection
 
         connection.requestMethod = "GET"
@@ -38,7 +37,8 @@ object CoinServiceHttp {
         val response = connection.inputStream.bufferedReader().use { it.readText() }
         connection.disconnect()
 
-        return json.decodeFromString(response)
+        val quoteResponse: QuoteResponse = json.decodeFromString(response)
+        return quoteResponse.quotes
     }
 
     private fun getProperties(pProperty: String): String? {

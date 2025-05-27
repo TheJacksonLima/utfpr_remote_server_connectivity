@@ -1,16 +1,16 @@
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import org.example.service.CoinServiceHttp
-import org.example.service.CoinServiceKtor
+import org.example.service.QuoteServiceHttp
+import org.example.service.QuoteServiceKtor
 import java.io.File
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.logging.LogManager
 import kotlin.system.measureTimeMillis
 
 suspend fun main() = coroutineScope {
     val timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"))
-    val logFile = File("ktor_vs_http_$timestamp.txt")
+    val logFile = File("quotes_ktor_vs_http_$timestamp.txt")
     logFile.printWriter().use { writer ->
 
         fun log(msg: String) {
@@ -18,71 +18,44 @@ suspend fun main() = coroutineScope {
             println(msg)
         }
 
-        val TOTAL_REQ = 10
-
-        log("Comparando Ktor com HttpURLConnection uma requisição por vez")
-
-        var elapsedTime = measureTimeMillis {
-            val coinsK = CoinServiceKtor.fetchAllCoins()
-            val randomCoinsK = coinsK.take(TOTAL_REQ)
-
-            randomCoinsK.forEach {
-                val coinResponse = CoinServiceHttp.fetchCoinInfo(it.id)
-            }
-        }
-
-        log("_".repeat(50))
-        log("Ktor tempo total: ${elapsedTime}ms")
-        log("Ktor tempo médio por requisição: ${elapsedTime / TOTAL_REQ}ms")
-        log("_".repeat(50))
-
-        elapsedTime = measureTimeMillis {
-            val coinsH = CoinServiceHttp.fetchAllCoins()
-            val randomCoinsH = coinsH.take(TOTAL_REQ)
-
-            randomCoinsH.forEach {
-                val coinResponse = CoinServiceHttp.fetchCoinInfo(it.id)
-            }
-        }
-
-        log("HttpURLConnection tempo total: ${elapsedTime}ms")
-        log("HttpURLConnection tempo médio por requisição: ${elapsedTime / TOTAL_REQ}ms")
-        log("_".repeat(50))
+        var quotesK = QuoteServiceKtor.fetchAllQuotes()
+        var quotesH = QuoteServiceHttp.fetchAllQuotes()
 
         log("\nComparando Ktor com HttpURLConnection em chamadas paralelas crescentes")
 
-        val coinsK = CoinServiceKtor.fetchAllCoins()
-        val coinsH = CoinServiceHttp.fetchAllCoins()
-
-        for (reqCount in 2.. 100 step 2) {
+        for (reqCount in 1..300 step 10) {
             log("### Rodada com $reqCount requisições paralelas")
 
             val elapsedKtor = measureTimeMillis {
                 coroutineScope {
-                    val jobs = coinsK.take(reqCount).map { coin ->
-                        async {
-                            CoinServiceKtor.fetchCoinInfo(coin.id)
+                    val jobs = quotesK.take(reqCount).map { quote ->
+                        async (Dispatchers.IO){
+                            QuoteServiceKtor.fetchQuoteInfo(quote.id)
                         }
                     }
                     jobs.forEach { it.await() }
                 }
             }
 
-            log("Ktor - Total: ${elapsedKtor}ms | Média: ${elapsedKtor / reqCount}ms")
+            val mediaKtor = elapsedKtor.toDouble() / reqCount
+            log("Ktor - Total: ${elapsedKtor}ms | Média: %.4fms".format(mediaKtor))
 
             val elapsedHttp = measureTimeMillis {
                 coroutineScope {
-                    val jobs = coinsH.take(reqCount).map { coin ->
-                        async {
-                            CoinServiceHttp.fetchCoinInfo(coin.id)
+                    val jobs = quotesH.take(reqCount).map { quote ->
+                        async (Dispatchers.IO){
+                            QuoteServiceHttp.fetchQuoteInfo(quote.id)
                         }
                     }
                     jobs.forEach { it.await() }
                 }
             }
 
-            log("HTTP - Total: ${elapsedHttp}ms | Média: ${elapsedHttp / reqCount}ms")
+            val mediaHttp = elapsedHttp.toDouble() / reqCount
+            log("HTTP - Total: ${elapsedHttp}ms | Média: %.4fms".format(mediaHttp))
+
             log("_".repeat(60))
         }
+
     }
 }
