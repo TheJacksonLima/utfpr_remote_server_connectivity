@@ -4,7 +4,14 @@
             <pattern>%d{YYYY-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
     </appender>
-    <root level="trace">
+
+    <logger name="io.ktor" level="OFF"/>
+    <logger name="io.ktor.client" level="OFF"/>
+    <logger name="io.ktor.client.plugins" level="OFF"/>
+    <logger name="io.ktor.http" level="OFF"/>
+    <logger name="c.p" level="OFF"/>
+
+    <root level="TRACE">
         <appender-ref ref="APPENDER"/>
     </root>
 </configuration>

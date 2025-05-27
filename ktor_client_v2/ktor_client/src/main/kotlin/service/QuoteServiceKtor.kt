@@ -8,15 +8,28 @@ import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
-import org.example.model.Coin
+import io.ktor.client.engine.cio.*
+import model.Quote
+import model.QuoteResponse
 import java.io.FileInputStream
 import java.io.IOException
-import java.net.HttpURLConnection
-import java.net.URL
 import java.util.*
 
-object CoinServiceKtor {
-    private val client = HttpClient {
+object QuoteServiceKtor {
+    private val baseUrl: String = QuoteServiceKtor.getProperties("quote_base_url") ?: error("base_url ausente")
+    private val basePath: String = QuoteServiceKtor.getProperties("quote_base_path") ?: error("base_path ausente")
+
+    private val client = HttpClient(CIO) {
+        engine {
+            maxConnectionsCount = 1000
+            endpoint {
+                connectTimeout = 5_000
+                requestTimeout = 10_000
+                keepAliveTime = 5000
+                pipelineMaxSize = 20
+                maxConnectionsPerRoute = 100
+            }
+        }
         install(ContentNegotiation) {
             json(Json {
                 ignoreUnknownKeys = true
@@ -24,39 +37,22 @@ object CoinServiceKtor {
         }
     }
 
-    suspend fun fetchAllCoins(): List<Coin> {
-        val apiKey = System.getenv("API_KEY") ?: error("API_KEY não foi configurada nas variáveis de ambiente")
-        val requestBuilder = HttpRequestBuilder().apply {
-            method = HttpMethod.Get
-            url {
-                protocol = URLProtocol.HTTPS
-                host = getProperties("coin_gecko_base_url").toString()
-                encodedPath = getProperties("coin_gecko_base_path").toString() + "list"
-                parameters.append("vs_currency", "usd")
-                parameters.append("x_cg_demo_api_key", apiKey)
-            }
-        }
-
-        val coins: List<Coin> = client.request(requestBuilder).body()
-        return coins;
+    suspend fun fetchAllQuotes(): List<Quote> {
+        val response: QuoteResponse = client.get {
+            url("https://$baseUrl$basePath")
+        }.body()
+        return response.quotes
     }
 
-    suspend fun fetchCoinInfo(coinId : String): String {
-        val apiKey = System.getenv("API_KEY") ?: error("API_KEY não foi configurada nas variáveis de ambiente")
-        val requestBuilder = HttpRequestBuilder().apply {
-            method = HttpMethod.Get
-            url {
-                protocol = URLProtocol.HTTPS
-                host = getProperties("coin_gecko_base_url").toString()
-                encodedPath = getProperties("coin_gecko_base_path").toString() + coinId
-                parameters.append("vs_currency", "usd")
-                parameters.append("x_cg_demo_api_key", apiKey)
-            }
+    suspend fun fetchQuoteInfo(quoteId : Int): Quote {
+        val response: Quote = client.get {
+            url("https://$baseUrl$basePath/$quoteId")
             headers {
                 append(HttpHeaders.Accept, ContentType.Application.Json.toString())
             }
-        }
-        return client.request(requestBuilder).bodyAsText()
+        }.body()
+
+        return response
     }
 
     private fun getProperties(pProperty: String): String? {
