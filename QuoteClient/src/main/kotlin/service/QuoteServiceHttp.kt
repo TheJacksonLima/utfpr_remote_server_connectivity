@@ -11,12 +11,12 @@ import java.util.*
 
 object QuoteServiceHttp {
 
-    private val baseUrl: String = QuoteServiceHttp.getProperties("quote_base_url") ?: error("base_url ausente")
-    private val basePath: String = QuoteServiceHttp.getProperties("quote_base_path") ?: error("base_path ausente")
+    private val baseUrl: String = QuoteServiceHttp.getProperties("quote_local_base_url") ?: error("base_url ausente")
+    private val basePath: String = QuoteServiceHttp.getProperties("quote_local_base_path") ?: error("base_path ausente")
     private val json = Json { ignoreUnknownKeys = true }
 
     fun fetchQuoteInfo(quoteId: Int): String {
-        val urlString = "https://$baseUrl$basePath/" + quoteId.toString()
+        val urlString = "http://$baseUrl$basePath/" + quoteId.toString()
         val connection = URL(urlString).openConnection() as HttpURLConnection
 
         connection.requestMethod = "GET"
@@ -28,7 +28,7 @@ object QuoteServiceHttp {
     }
 
     fun fetchAllQuotes(): List<Quote> {
-        val urlString = "https://$baseUrl$basePath"
+        val urlString = "http://$baseUrl$basePath"
         val connection = URL(urlString).openConnection() as HttpURLConnection
 
         connection.requestMethod = "GET"

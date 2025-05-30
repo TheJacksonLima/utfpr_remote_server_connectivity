@@ -4,7 +4,6 @@ import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
 import io.ktor.client.request.*
-import io.ktor.client.statement.*
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import kotlinx.serialization.json.Json
@@ -16,8 +15,8 @@ import java.io.IOException
 import java.util.*
 
 object QuoteServiceKtor {
-    private val baseUrl: String = QuoteServiceKtor.getProperties("quote_base_url") ?: error("base_url ausente")
-    private val basePath: String = QuoteServiceKtor.getProperties("quote_base_path") ?: error("base_path ausente")
+    private val baseUrl: String = QuoteServiceKtor.getProperties("quote_local_base_url") ?: error("base_url ausente")
+    private val basePath: String = QuoteServiceKtor.getProperties("quote_local_base_path") ?: error("base_path ausente")
 
     private val client = HttpClient(CIO) {
         engine {
@@ -39,14 +38,14 @@ object QuoteServiceKtor {
 
     suspend fun fetchAllQuotes(): List<Quote> {
         val response: QuoteResponse = client.get {
-            url("https://$baseUrl$basePath")
+            url("http://$baseUrl$basePath")
         }.body()
         return response.quotes
     }
 
     suspend fun fetchQuoteInfo(quoteId : Int): Quote {
         val response: Quote = client.get {
-            url("https://$baseUrl$basePath/$quoteId")
+            url("http://$baseUrl$basePath/$quoteId")
             headers {
                 append(HttpHeaders.Accept, ContentType.Application.Json.toString())
             }

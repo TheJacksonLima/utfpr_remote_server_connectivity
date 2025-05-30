@@ -1,0 +1,409 @@
+Aquecer JIT e conexões...
+Warm-up completo.
+
+
+Comparando Ktor com HttpURLConnection em chamadas paralelas crescentes
+### Rodada com 0 requisições paralelas
+HTTP - Total: 2ms | Média: Infinityms
+Ktor - Total: 0ms | Média: NaNms
+____________________________________________________________
+### Rodada com 1 requisições paralelas
+Ktor - Total: 242ms | Média: 242,0000ms
+HTTP - Total: 211ms | Média: 211,0000ms
+____________________________________________________________
+### Rodada com 2 requisições paralelas
+HTTP - Total: 283ms | Média: 141,5000ms
+Ktor - Total: 244ms | Média: 122,0000ms
+____________________________________________________________
+### Rodada com 3 requisições paralelas
+Ktor - Total: 264ms | Média: 88,0000ms
+HTTP - Total: 270ms | Média: 90,0000ms
+____________________________________________________________
+### Rodada com 4 requisições paralelas
+HTTP - Total: 298ms | Média: 74,5000ms
+Ktor - Total: 287ms | Média: 71,7500ms
+____________________________________________________________
+### Rodada com 5 requisições paralelas
+Ktor - Total: 281ms | Média: 56,2000ms
+HTTP - Total: 298ms | Média: 59,6000ms
+____________________________________________________________
+### Rodada com 6 requisições paralelas
+HTTP - Total: 294ms | Média: 49,0000ms
+Ktor - Total: 310ms | Média: 51,6667ms
+____________________________________________________________
+### Rodada com 7 requisições paralelas
+Ktor - Total: 300ms | Média: 42,8571ms
+HTTP - Total: 264ms | Média: 37,7143ms
+____________________________________________________________
+### Rodada com 8 requisições paralelas
+HTTP - Total: 300ms | Média: 37,5000ms
+Ktor - Total: 309ms | Média: 38,6250ms
+____________________________________________________________
+### Rodada com 9 requisições paralelas
+Ktor - Total: 295ms | Média: 32,7778ms
+HTTP - Total: 297ms | Média: 33,0000ms
+____________________________________________________________
+### Rodada com 10 requisições paralelas
+HTTP - Total: 301ms | Média: 30,1000ms
+Ktor - Total: 311ms | Média: 31,1000ms
+____________________________________________________________
+### Rodada com 11 requisições paralelas
+Ktor - Total: 290ms | Média: 26,3636ms
+HTTP - Total: 293ms | Média: 26,6364ms
+____________________________________________________________
+### Rodada com 12 requisições paralelas
+HTTP - Total: 303ms | Média: 25,2500ms
+Ktor - Total: 305ms | Média: 25,4167ms
+____________________________________________________________
+### Rodada com 13 requisições paralelas
+Ktor - Total: 298ms | Média: 22,9231ms
+HTTP - Total: 286ms | Média: 22,0000ms
+____________________________________________________________
+### Rodada com 14 requisições paralelas
+HTTP - Total: 296ms | Média: 21,1429ms
+Ktor - Total: 299ms | Média: 21,3571ms
+____________________________________________________________
+### Rodada com 15 requisições paralelas
+Ktor - Total: 297ms | Média: 19,8000ms
+HTTP - Total: 305ms | Média: 20,3333ms
+____________________________________________________________
+### Rodada com 16 requisições paralelas
+HTTP - Total: 308ms | Média: 19,2500ms
+Ktor - Total: 315ms | Média: 19,6875ms
+____________________________________________________________
+### Rodada com 17 requisições paralelas
+Ktor - Total: 309ms | Média: 18,1765ms
+HTTP - Total: 302ms | Média: 17,7647ms
+____________________________________________________________
+### Rodada com 18 requisições paralelas
+HTTP - Total: 307ms | Média: 17,0556ms
+Ktor - Total: 309ms | Média: 17,1667ms
+____________________________________________________________
+### Rodada com 19 requisições paralelas
+Ktor - Total: 309ms | Média: 16,2632ms
+HTTP - Total: 306ms | Média: 16,1053ms
+____________________________________________________________
+### Rodada com 20 requisições paralelas
+HTTP - Total: 303ms | Média: 15,1500ms
+Ktor - Total: 312ms | Média: 15,6000ms
+____________________________________________________________
+### Rodada com 21 requisições paralelas
+Ktor - Total: 308ms | Média: 14,6667ms
+HTTP - Total: 305ms | Média: 14,5238ms
+____________________________________________________________
+### Rodada com 22 requisições paralelas
+HTTP - Total: 300ms | Média: 13,6364ms
+Ktor - Total: 300ms | Média: 13,6364ms
+____________________________________________________________
+### Rodada com 23 requisições paralelas
+Ktor - Total: 308ms | Média: 13,3913ms
+HTTP - Total: 311ms | Média: 13,5217ms
+____________________________________________________________
+### Rodada com 24 requisições paralelas
+HTTP - Total: 305ms | Média: 12,7083ms
+Ktor - Total: 318ms | Média: 13,2500ms
+____________________________________________________________
+### Rodada com 25 requisições paralelas
+Ktor - Total: 311ms | Média: 12,4400ms
+HTTP - Total: 303ms | Média: 12,1200ms
+____________________________________________________________
+### Rodada com 26 requisições paralelas
+HTTP - Total: 299ms | Média: 11,5000ms
+Ktor - Total: 302ms | Média: 11,6154ms
+____________________________________________________________
+### Rodada com 27 requisições paralelas
+Ktor - Total: 312ms | Média: 11,5556ms
+HTTP - Total: 300ms | Média: 11,1111ms
+____________________________________________________________
+### Rodada com 28 requisições paralelas
+HTTP - Total: 309ms | Média: 11,0357ms
+Ktor - Total: 307ms | Média: 10,9643ms
+____________________________________________________________
+### Rodada com 29 requisições paralelas
+Ktor - Total: 313ms | Média: 10,7931ms
+HTTP - Total: 303ms | Média: 10,4483ms
+____________________________________________________________
+### Rodada com 30 requisições paralelas
+HTTP - Total: 304ms | Média: 10,1333ms
+Ktor - Total: 306ms | Média: 10,2000ms
+____________________________________________________________
+### Rodada com 31 requisições paralelas
+Ktor - Total: 309ms | Média: 9,9677ms
+HTTP - Total: 316ms | Média: 10,1935ms
+____________________________________________________________
+### Rodada com 32 requisições paralelas
+HTTP - Total: 308ms | Média: 9,6250ms
+Ktor - Total: 326ms | Média: 10,1875ms
+____________________________________________________________
+### Rodada com 33 requisições paralelas
+Ktor - Total: 314ms | Média: 9,5152ms
+HTTP - Total: 306ms | Média: 9,2727ms
+____________________________________________________________
+### Rodada com 34 requisições paralelas
+HTTP - Total: 308ms | Média: 9,0588ms
+Ktor - Total: 314ms | Média: 9,2353ms
+____________________________________________________________
+### Rodada com 35 requisições paralelas
+Ktor - Total: 315ms | Média: 9,0000ms
+HTTP - Total: 310ms | Média: 8,8571ms
+____________________________________________________________
+### Rodada com 36 requisições paralelas
+HTTP - Total: 308ms | Média: 8,5556ms
+Ktor - Total: 313ms | Média: 8,6944ms
+____________________________________________________________
+### Rodada com 37 requisições paralelas
+Ktor - Total: 312ms | Média: 8,4324ms
+HTTP - Total: 309ms | Média: 8,3514ms
+____________________________________________________________
+### Rodada com 38 requisições paralelas
+HTTP - Total: 310ms | Média: 8,1579ms
+Ktor - Total: 314ms | Média: 8,2632ms
+____________________________________________________________
+### Rodada com 39 requisições paralelas
+Ktor - Total: 310ms | Média: 7,9487ms
+HTTP - Total: 308ms | Média: 7,8974ms
+____________________________________________________________
+### Rodada com 40 requisições paralelas
+HTTP - Total: 303ms | Média: 7,5750ms
+Ktor - Total: 312ms | Média: 7,8000ms
+____________________________________________________________
+### Rodada com 41 requisições paralelas
+Ktor - Total: 311ms | Média: 7,5854ms
+HTTP - Total: 313ms | Média: 7,6341ms
+____________________________________________________________
+### Rodada com 42 requisições paralelas
+HTTP - Total: 314ms | Média: 7,4762ms
+Ktor - Total: 315ms | Média: 7,5000ms
+____________________________________________________________
+### Rodada com 43 requisições paralelas
+Ktor - Total: 320ms | Média: 7,4419ms
+HTTP - Total: 313ms | Média: 7,2791ms
+____________________________________________________________
+### Rodada com 44 requisições paralelas
+HTTP - Total: 310ms | Média: 7,0455ms
+Ktor - Total: 324ms | Média: 7,3636ms
+____________________________________________________________
+### Rodada com 45 requisições paralelas
+Ktor - Total: 319ms | Média: 7,0889ms
+HTTP - Total: 312ms | Média: 6,9333ms
+____________________________________________________________
+### Rodada com 46 requisições paralelas
+HTTP - Total: 312ms | Média: 6,7826ms
+Ktor - Total: 319ms | Média: 6,9348ms
+____________________________________________________________
+### Rodada com 47 requisições paralelas
+Ktor - Total: 315ms | Média: 6,7021ms
+HTTP - Total: 317ms | Média: 6,7447ms
+____________________________________________________________
+### Rodada com 48 requisições paralelas
+HTTP - Total: 312ms | Média: 6,5000ms
+Ktor - Total: 314ms | Média: 6,5417ms
+____________________________________________________________
+### Rodada com 49 requisições paralelas
+Ktor - Total: 315ms | Média: 6,4286ms
+HTTP - Total: 307ms | Média: 6,2653ms
+____________________________________________________________
+### Rodada com 50 requisições paralelas
+HTTP - Total: 316ms | Média: 6,3200ms
+Ktor - Total: 311ms | Média: 6,2200ms
+____________________________________________________________
+### Rodada com 51 requisições paralelas
+Ktor - Total: 317ms | Média: 6,2157ms
+HTTP - Total: 328ms | Média: 6,4314ms
+____________________________________________________________
+### Rodada com 52 requisições paralelas
+HTTP - Total: 313ms | Média: 6,0192ms
+Ktor - Total: 317ms | Média: 6,0962ms
+____________________________________________________________
+### Rodada com 53 requisições paralelas
+Ktor - Total: 321ms | Média: 6,0566ms
+HTTP - Total: 315ms | Média: 5,9434ms
+____________________________________________________________
+### Rodada com 54 requisições paralelas
+HTTP - Total: 314ms | Média: 5,8148ms
+Ktor - Total: 320ms | Média: 5,9259ms
+____________________________________________________________
+### Rodada com 55 requisições paralelas
+Ktor - Total: 321ms | Média: 5,8364ms
+HTTP - Total: 313ms | Média: 5,6909ms
+____________________________________________________________
+### Rodada com 56 requisições paralelas
+HTTP - Total: 312ms | Média: 5,5714ms
+Ktor - Total: 317ms | Média: 5,6607ms
+____________________________________________________________
+### Rodada com 57 requisições paralelas
+Ktor - Total: 326ms | Média: 5,7193ms
+HTTP - Total: 317ms | Média: 5,5614ms
+____________________________________________________________
+### Rodada com 58 requisições paralelas
+HTTP - Total: 310ms | Média: 5,3448ms
+Ktor - Total: 311ms | Média: 5,3621ms
+____________________________________________________________
+### Rodada com 59 requisições paralelas
+Ktor - Total: 314ms | Média: 5,3220ms
+HTTP - Total: 319ms | Média: 5,4068ms
+____________________________________________________________
+### Rodada com 60 requisições paralelas
+HTTP - Total: 311ms | Média: 5,1833ms
+Ktor - Total: 320ms | Média: 5,3333ms
+____________________________________________________________
+### Rodada com 61 requisições paralelas
+Ktor - Total: 314ms | Média: 5,1475ms
+HTTP - Total: 310ms | Média: 5,0820ms
+____________________________________________________________
+### Rodada com 62 requisições paralelas
+HTTP - Total: 310ms | Média: 5,0000ms
+Ktor - Total: 316ms | Média: 5,0968ms
+____________________________________________________________
+### Rodada com 63 requisições paralelas
+Ktor - Total: 328ms | Média: 5,2063ms
+HTTP - Total: 313ms | Média: 4,9683ms
+____________________________________________________________
+### Rodada com 64 requisições paralelas
+HTTP - Total: 483ms | Média: 7,5469ms
+Ktor - Total: 314ms | Média: 4,9063ms
+____________________________________________________________
+### Rodada com 65 requisições paralelas
+Ktor - Total: 316ms | Média: 4,8615ms
+HTTP - Total: 451ms | Média: 6,9385ms
+____________________________________________________________
+### Rodada com 66 requisições paralelas
+HTTP - Total: 504ms | Média: 7,6364ms
+Ktor - Total: 325ms | Média: 4,9242ms
+____________________________________________________________
+### Rodada com 67 requisições paralelas
+Ktor - Total: 316ms | Média: 4,7164ms
+HTTP - Total: 483ms | Média: 7,2090ms
+____________________________________________________________
+### Rodada com 68 requisições paralelas
+HTTP - Total: 462ms | Média: 6,7941ms
+Ktor - Total: 312ms | Média: 4,5882ms
+____________________________________________________________
+### Rodada com 69 requisições paralelas
+Ktor - Total: 311ms | Média: 4,5072ms
+HTTP - Total: 516ms | Média: 7,4783ms
+____________________________________________________________
+### Rodada com 70 requisições paralelas
+HTTP - Total: 495ms | Média: 7,0714ms
+Ktor - Total: 314ms | Média: 4,4857ms
+____________________________________________________________
+### Rodada com 71 requisições paralelas
+Ktor - Total: 322ms | Média: 4,5352ms
+HTTP - Total: 511ms | Média: 7,1972ms
+____________________________________________________________
+### Rodada com 72 requisições paralelas
+HTTP - Total: 495ms | Média: 6,8750ms
+Ktor - Total: 313ms | Média: 4,3472ms
+____________________________________________________________
+### Rodada com 73 requisições paralelas
+Ktor - Total: 316ms | Média: 4,3288ms
+HTTP - Total: 514ms | Média: 7,0411ms
+____________________________________________________________
+### Rodada com 74 requisições paralelas
+HTTP - Total: 499ms | Média: 6,7432ms
+Ktor - Total: 320ms | Média: 4,3243ms
+____________________________________________________________
+### Rodada com 75 requisições paralelas
+Ktor - Total: 324ms | Média: 4,3200ms
+HTTP - Total: 510ms | Média: 6,8000ms
+____________________________________________________________
+### Rodada com 76 requisições paralelas
+HTTP - Total: 510ms | Média: 6,7105ms
+Ktor - Total: 318ms | Média: 4,1842ms
+____________________________________________________________
+### Rodada com 77 requisições paralelas
+Ktor - Total: 324ms | Média: 4,2078ms
+HTTP - Total: 520ms | Média: 6,7532ms
+____________________________________________________________
+### Rodada com 78 requisições paralelas
+HTTP - Total: 526ms | Média: 6,7436ms
+Ktor - Total: 325ms | Média: 4,1667ms
+____________________________________________________________
+### Rodada com 79 requisições paralelas
+Ktor - Total: 321ms | Média: 4,0633ms
+HTTP - Total: 503ms | Média: 6,3671ms
+____________________________________________________________
+### Rodada com 80 requisições paralelas
+HTTP - Total: 516ms | Média: 6,4500ms
+Ktor - Total: 319ms | Média: 3,9875ms
+____________________________________________________________
+### Rodada com 81 requisições paralelas
+Ktor - Total: 326ms | Média: 4,0247ms
+HTTP - Total: 513ms | Média: 6,3333ms
+____________________________________________________________
+### Rodada com 82 requisições paralelas
+HTTP - Total: 512ms | Média: 6,2439ms
+Ktor - Total: 340ms | Média: 4,1463ms
+____________________________________________________________
+### Rodada com 83 requisições paralelas
+Ktor - Total: 361ms | Média: 4,3494ms
+HTTP - Total: 542ms | Média: 6,5301ms
+____________________________________________________________
+### Rodada com 84 requisições paralelas
+HTTP - Total: 539ms | Média: 6,4167ms
+Ktor - Total: 324ms | Média: 3,8571ms
+____________________________________________________________
+### Rodada com 85 requisições paralelas
+Ktor - Total: 332ms | Média: 3,9059ms
+HTTP - Total: 530ms | Média: 6,2353ms
+____________________________________________________________
+### Rodada com 86 requisições paralelas
+HTTP - Total: 503ms | Média: 5,8488ms
+Ktor - Total: 323ms | Média: 3,7558ms
+____________________________________________________________
+### Rodada com 87 requisições paralelas
+Ktor - Total: 324ms | Média: 3,7241ms
+HTTP - Total: 539ms | Média: 6,1954ms
+____________________________________________________________
+### Rodada com 88 requisições paralelas
+HTTP - Total: 528ms | Média: 6,0000ms
+Ktor - Total: 331ms | Média: 3,7614ms
+____________________________________________________________
+### Rodada com 89 requisições paralelas
+Ktor - Total: 330ms | Média: 3,7079ms
+HTTP - Total: 546ms | Média: 6,1348ms
+____________________________________________________________
+### Rodada com 90 requisições paralelas
+HTTP - Total: 534ms | Média: 5,9333ms
+Ktor - Total: 330ms | Média: 3,6667ms
+____________________________________________________________
+### Rodada com 91 requisições paralelas
+Ktor - Total: 328ms | Média: 3,6044ms
+HTTP - Total: 565ms | Média: 6,2088ms
+____________________________________________________________
+### Rodada com 92 requisições paralelas
+HTTP - Total: 552ms | Média: 6,0000ms
+Ktor - Total: 337ms | Média: 3,6630ms
+____________________________________________________________
+### Rodada com 93 requisições paralelas
+Ktor - Total: 324ms | Média: 3,4839ms
+HTTP - Total: 526ms | Média: 5,6559ms
+____________________________________________________________
+### Rodada com 94 requisições paralelas
+HTTP - Total: 553ms | Média: 5,8830ms
+Ktor - Total: 332ms | Média: 3,5319ms
+____________________________________________________________
+### Rodada com 95 requisições paralelas
+Ktor - Total: 330ms | Média: 3,4737ms
+HTTP - Total: 546ms | Média: 5,7474ms
+____________________________________________________________
+### Rodada com 96 requisições paralelas
+HTTP - Total: 542ms | Média: 5,6458ms
+Ktor - Total: 335ms | Média: 3,4896ms
+____________________________________________________________
+### Rodada com 97 requisições paralelas
+Ktor - Total: 326ms | Média: 3,3608ms
+HTTP - Total: 542ms | Média: 5,5876ms
+____________________________________________________________
+### Rodada com 98 requisições paralelas
+HTTP - Total: 555ms | Média: 5,6633ms
+Ktor - Total: 338ms | Média: 3,4490ms
+____________________________________________________________
+### Rodada com 99 requisições paralelas
+Ktor - Total: 331ms | Média: 3,3434ms
+HTTP - Total: 544ms | Média: 5,4949ms
+____________________________________________________________
+### Rodada com 100 requisições paralelas
+HTTP - Total: 562ms | Média: 5,6200ms
+Ktor - Total: 327ms | Média: 3,2700ms
+____________________________________________________________

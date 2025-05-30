@@ -1,0 +1,49 @@
+Aquecer JIT e conexões...
+Warm-up completo.
+
+
+Comparando Ktor com HttpURLConnection em chamadas paralelas crescentes
+### Rodada com 0 requisições paralelas
+HTTP - Total: 1ms | Média: Infinityms
+Ktor - Total: 1ms | Média: Infinityms
+____________________________________________________________
+### Rodada com 10 requisições paralelas
+HTTP - Total: 275ms | Média: 27,5000ms
+Ktor - Total: 310ms | Média: 31,0000ms
+____________________________________________________________
+### Rodada com 20 requisições paralelas
+HTTP - Total: 310ms | Média: 15,5000ms
+Ktor - Total: 311ms | Média: 15,5500ms
+____________________________________________________________
+### Rodada com 30 requisições paralelas
+HTTP - Total: 324ms | Média: 10,8000ms
+Ktor - Total: 347ms | Média: 11,5667ms
+____________________________________________________________
+### Rodada com 40 requisições paralelas
+HTTP - Total: 324ms | Média: 8,1000ms
+Ktor - Total: 325ms | Média: 8,1250ms
+____________________________________________________________
+### Rodada com 50 requisições paralelas
+HTTP - Total: 318ms | Média: 6,3600ms
+Ktor - Total: 346ms | Média: 6,9200ms
+____________________________________________________________
+### Rodada com 60 requisições paralelas
+HTTP - Total: 320ms | Média: 5,3333ms
+Ktor - Total: 340ms | Média: 5,6667ms
+____________________________________________________________
+### Rodada com 70 requisições paralelas
+HTTP - Total: 524ms | Média: 7,4857ms
+Ktor - Total: 358ms | Média: 5,1143ms
+____________________________________________________________
+### Rodada com 80 requisições paralelas
+HTTP - Total: 537ms | Média: 6,7125ms
+Ktor - Total: 353ms | Média: 4,4125ms
+____________________________________________________________
+### Rodada com 90 requisições paralelas
+HTTP - Total: 560ms | Média: 6,2222ms
+Ktor - Total: 361ms | Média: 4,0111ms
+____________________________________________________________
+### Rodada com 100 requisições paralelas
+HTTP - Total: 580ms | Média: 5,8000ms
+Ktor - Total: 349ms | Média: 3,4900ms
+____________________________________________________________
